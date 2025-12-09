@@ -19,6 +19,8 @@ body {
     align-items: center;
     min-height: 100vh;
     text-align: center;
+    overflow: hidden;
+    position: relative;
 }
 
 /* Main container */
@@ -34,12 +36,12 @@ body {
 
 /* Neon heading with black outline */
 h1 {
-    color: #FF6F00;
+    color: #FF6F00; /* neon orange */
     font-size: 2.5em;
     font-weight: bold;
     text-transform: uppercase;
     text-shadow:
-        0 0 3px #000,
+        0 0 3px #000,      /* black outline */
         0 0 5px #FF6F00,
         0 0 10px #FF6F00,
         0 0 20px #FF6F00,
@@ -47,7 +49,7 @@ h1 {
     animation: neonPulse 1.5s infinite alternate;
 }
 
-/* Neon buttons / boxes with slight transparency */
+/* Neon buttons / boxes */
 .link-button {
     display: block;
     margin: 12px auto;
@@ -56,28 +58,28 @@ h1 {
     max-width: 300px;
     text-decoration: none;
     color: #fff;
-    background-color: rgba(255, 111, 0, 0.85); /* slightly transparent orange */
-    border: 3px solid #000;
+    background-color: rgba(255, 111, 0, 0.8); /* semi-transparent orange */
+    border: 3px solid #000; /* black border */
     border-radius: 12px;
     font-weight: bold;
     font-size: 1.1em;
     text-shadow:
         0 0 3px #000,
-        0 0 10px rgba(255,111,0,0.8),
-        0 0 20px rgba(255,111,0,0.7);
+        0 0 10px #FF6F00,
+        0 0 20px #FF6F00;
     box-shadow:
-        0 0 10px rgba(255,111,0,0.7),
-        0 0 20px rgba(255,111,0,0.6),
-        0 0 40px rgba(255,111,0,0.5);
+        0 0 10px #FF6F00,
+        0 0 20px #FF6F00,
+        0 0 40px #FF6F00;
     transition: transform 0.2s, box-shadow 0.3s;
 }
 
 .link-button:hover {
     transform: scale(1.05);
     box-shadow:
-        0 0 20px rgba(255,111,0,0.9),
-        0 0 40px rgba(255,111,0,0.8),
-        0 0 80px rgba(255,111,0,0.7);
+        0 0 20px #FF6F00,
+        0 0 40px #FF6F00,
+        0 0 80px #FF6F00;
 }
 
 /* Neon pulse animation for heading */
@@ -110,6 +112,15 @@ h1 {
         font-size: 1em;
     }
 }
+
+/* Paint splashes */
+.splash {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.8;
+    mix-blend-mode: screen; /* makes splashes blend nicely */
+}
 </style>
 </head>
 <body>
@@ -122,5 +133,24 @@ h1 {
     <a class="link-button" href="https://www.etsy.com/shop/TVGcolor" target="_blank">Etsy</a>
     <a class="link-button" href="https://www.amazon.com/stores/author/B0FJM9XYGY?ccs_id=2d534d53-6a10-4c5f-ba37-ee6fc1654a11" target="_blank">Amazon Author</a>
 </div>
+
+<script>
+// Create paint splashes on mouse movement
+document.addEventListener('mousemove', function(e) {
+    const splash = document.createElement('div');
+    const size = Math.random() * 30 + 10; // 10px to 40px
+    splash.className = 'splash';
+    splash.style.width = size + 'px';
+    splash.style.height = size + 'px';
+    splash.style.left = e.pageX - size/2 + 'px';
+    splash.style.top = e.pageY - size/2 + 'px';
+    splash.style.background = `hsl(${Math.random()*360}, 80%, 60%)`;
+    document.body.appendChild(splash);
+
+    setTimeout(() => {
+        splash.remove();
+    }, 1000);
+});
+</script>
 </body>
 </html>
