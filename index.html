@@ -1,147 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TVG Coloring</title>
-<style>
+/* Global body styling */
 body {
+    background-color: #0a0a0a; /* dark background for neon contrast */
+    color: #fff; /* fallback text color */
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background: url('background.png') no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.container {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0);
-    padding: 30px 20px;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 350px;
-    box-sizing: border-box;
 }
 
-/* Neon title */
-.container h1 {
-    margin-bottom: 25px;
-    font-size: 2em;
-    color: #FFB800; /* warm orange */
-    text-shadow:
-        0 0 5px black,
-        0 0 10px #FFB800,
-        0 0 20px #FFB800,
-        0 0 30px #FFB800,
-        0 0 40px #FFB800;
-    animation: titlePulse 2s infinite alternate;
-    word-wrap: break-word;
+/* Main container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
 }
 
-/* Neon link buttons */
-.link-button {
-    display: block;
-    margin: 12px auto;
-    padding: 14px 0;
-    width: 100%;
-    text-decoration: none;
-    color: #333;
-    background-color: white;
-    border: 3px solid #FFB800; /* neon orange border */
-    border-radius: 12px;
+/* Neon headings */
+h1, h2, h3 {
+    color: #FF6F00; /* main neon color */
+    text-transform: uppercase;
     font-weight: bold;
-    font-size: 1.1em;
+    text-shadow:
+        0 0 5px #FF6F00,
+        0 0 10px #FF6F00,
+        0 0 20px #FF6F00,
+        0 0 40px #FF6F00,
+        0 0 80px #FF6F00;
+    animation: neon-pulse 1.5s infinite alternate;
+}
+
+/* Neon paragraph or smaller text */
+p, li {
+    color: #00FFFF; /* secondary neon color */
+    text-shadow:
+        0 0 3px #00FFFF,
+        0 0 6px #00FFFF,
+        0 0 12px #00FFFF;
+}
+
+/* Buttons */
+button {
+    background-color: #FF00FF;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    cursor: pointer;
+    text-shadow:
+        0 0 5px #FF00FF,
+        0 0 10px #FF00FF,
+        0 0 20px #FF00FF;
     box-shadow:
-        0 0 5px #000000,
-        0 0 10px #FFB800,
-        0 0 20px #FFB800,
-        0 0 30px #FFB800;
-    animation: neonPulse 2s infinite alternate;
-    transition: transform 0.2s, background 0.2s, box-shadow 0.3s;
+        0 0 10px #FF00FF,
+        0 0 20px #FF00FF,
+        0 0 40px #FF00FF;
+    transition: all 0.3s ease;
 }
 
-.link-button:hover {
-    background-color: #FFFFE0;
+button:hover {
     transform: scale(1.05);
+    box-shadow:
+        0 0 20px #FF00FF,
+        0 0 40px #FF00FF,
+        0 0 80px #FF00FF;
 }
 
-/* Neon pulse animations */
-@keyframes neonPulse {
-    0% {
-        box-shadow:
-            0 0 5px #000000,
-            0 0 10px #FFB800,
-            0 0 20px #FFB800,
-            0 0 30px #FFB800;
-    }
-    50% {
-        box-shadow:
-            0 0 8px #000000,
-            0 0 15px #FFB800,
-            0 0 30px #FFB800,
-            0 0 45px #FFB800;
-    }
-    100% {
-        box-shadow:
-            0 0 5px #000000,
-            0 0 10px #FFB800,
-            0 0 20px #FFB800,
-            0 0 30px #FFB800;
-    }
-}
-
-@keyframes titlePulse {
-    0% {
+/* Neon pulse animation */
+@keyframes neon-pulse {
+    0%, 100% {
         text-shadow:
-            0 0 5px black,
-            0 0 10px #FFB800,
-            0 0 20px #FFB800,
-            0 0 30px #FFB800,
-            0 0 40px #FFB800;
+            0 0 5px #FF6F00,
+            0 0 10px #FF6F00,
+            0 0 20px #FF6F00,
+            0 0 40px #FF6F00,
+            0 0 80px #FF6F00;
     }
     50% {
         text-shadow:
-            0 0 5px black,
-            0 0 15px #FFB800,
-            0 0 30px #FFB800,
-            0 0 45px #FFB800,
-            0 0 60px #FFB800;
-    }
-    100% {
-        text-shadow:
-            0 0 5px black,
-            0 0 10px #FFB800,
-            0 0 20px #FFB800,
-            0 0 30px #FFB800,
-            0 0 40px #FFB800;
+            0 0 10px #FF6F00,
+            0 0 20px #FF6F00,
+            0 0 40px #FF6F00,
+            0 0 80px #FF6F00,
+            0 0 160px #FF6F00;
     }
 }
 
-/* Mobile adjustments */
-@media (max-width: 480px) {
-    .container h1 {
-        font-size: 1.6em;
-    }
-    .link-button {
-        padding: 12px 0;
-        font-size: 1em;
-    }
+/* Links with neon glow */
+a {
+    color: #39FF14;
+    text-decoration: none;
+    text-shadow:
+        0 0 5px #39FF14,
+        0 0 10px #39FF14,
+        0 0 20px #39FF14;
+    transition: all 0.3s ease;
 }
-</style>
-</head>
-<body>
-<div class="container">
-    <h1>TVG Coloring</h1>
-    <a class="link-button" href="mailto:tvgcoloring@gmail.com">Email</a>
-    <a class="link-button" href="https://www.facebook.com/share/1Aswm2iKXY/" target="_blank">Facebook</a>
-    <a class="link-button" href="https://www.instagram.com/tvg.coloring?igsh=b2E3bGQ2OGc1d29q" target="_blank">Instagram</a>
-    <a class="link-button" href="https://www.tiktok.com/@tvgcolor?_r=1&_t=ZP-924QigSFdEM" target="_blank">TikTok</a>
-    <a class="link-button" href="https://www.etsy.com/shop/TVGcolor" target="_blank">Etsy</a>
-    <a class="link-button" href="https://www.amazon.com/stores/author/B0FJM9XYGY?ccs_id=2d534d53-6a10-4c5f-ba37-ee6fc1654a11" target="_blank">Amazon Author</a>
-</div>
-</body>
-</html>
+
+a:hover {
+    text-shadow:
+        0 0 10px #39FF14,
+        0 0 20px #39FF14,
+        0 0 40px #39FF14,
+        0 0 80px #39FF14;
+}
