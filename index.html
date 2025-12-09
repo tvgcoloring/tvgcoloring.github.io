@@ -19,7 +19,7 @@ body {
 
 .container {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0); /* fully transparent */
+    background-color: rgba(255, 255, 255, 0);
     padding: 30px 20px;
     border-radius: 20px;
     width: 90%;
@@ -88,4 +88,60 @@ body {
     100% {
         box-shadow:
             0 0 5px #000000,
-            0 0 10px #FFB8
+            0 0 10px #FFB800,
+            0 0 20px #FFB800,
+            0 0 30px #FFB800;
+    }
+}
+
+@keyframes titlePulse {
+    0% {
+        text-shadow:
+            0 0 5px black,
+            0 0 10px #FFB800,
+            0 0 20px #FFB800,
+            0 0 30px #FFB800,
+            0 0 40px #FFB800;
+    }
+    50% {
+        text-shadow:
+            0 0 5px black,
+            0 0 15px #FFB800,
+            0 0 30px #FFB800,
+            0 0 45px #FFB800,
+            0 0 60px #FFB800;
+    }
+    100% {
+        text-shadow:
+            0 0 5px black,
+            0 0 10px #FFB800,
+            0 0 20px #FFB800,
+            0 0 30px #FFB800,
+            0 0 40px #FFB800;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    .container h1 {
+        font-size: 1.6em;
+    }
+    .link-button {
+        padding: 12px 0;
+        font-size: 1em;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>TVG Coloring</h1>
+    <a class="link-button" href="mailto:tvgcoloring@gmail.com">Email</a>
+    <a class="link-button" href="https://www.facebook.com/share/1Aswm2iKXY/" target="_blank">Facebook</a>
+    <a class="link-button" href="https://www.instagram.com/tvg.coloring?igsh=b2E3bGQ2OGc1d29q" target="_blank">Instagram</a>
+    <a class="link-button" href="https://www.tiktok.com/@tvgcolor?_r=1&_t=ZP-924QigSFdEM" target="_blank">TikTok</a>
+    <a class="link-button" href="https://www.etsy.com/shop/TVGcolor" target="_blank">Etsy</a>
+    <a class="link-button" href="https://www.amazon.com/stores/author/B0FJM9XYGY?ccs_id=2d534d53-6a10-4c5f-ba37-ee6fc1654a11" target="_blank">Amazon Author</a>
+</div>
+</body>
+</html>
