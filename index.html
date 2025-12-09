@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TVG Coloring</title>
 <style>
+/* Global body styling */
 body {
     background-color: #0a0a0a;
     background: url('background.png') no-repeat center center fixed;
@@ -18,28 +19,27 @@ body {
     align-items: center;
     min-height: 100vh;
     text-align: center;
-    overflow: hidden;
 }
 
+/* Main container */
 .container {
     text-align: center;
-    padding: 30px 20px;
+    padding: 30px 20px; /* smaller padding */
     border-radius: 20px;
     max-width: 1200px;
     width: 90%;
     box-sizing: border-box;
-    background: none;
-    position: relative;
-    z-index: 2;
+    background: none; /* remove transparent overlay */
 }
 
+/* Neon heading with black outline */
 h1 {
-    color: #FF6F00;
+    color: #FF6F00; /* neon orange */
     font-size: 2.5em;
     font-weight: bold;
     text-transform: uppercase;
     text-shadow:
-        0 0 3px #000,
+        0 0 3px #000,      /* black outline */
         0 0 5px #FF6F00,
         0 0 10px #FF6F00,
         0 0 20px #FF6F00,
@@ -47,6 +47,7 @@ h1 {
     animation: neonPulse 1.5s infinite alternate;
 }
 
+/* Neon buttons / boxes */
 .link-button {
     display: block;
     margin: 12px auto;
@@ -55,13 +56,13 @@ h1 {
     max-width: 300px;
     text-decoration: none;
     color: #fff;
-    background-color: rgba(255, 111, 0, 0.7);
-    border: 3px solid #000;
+    background-color: #FF6F00; /* orange background */
+    border: 3px solid #000;     /* black trim */
     border-radius: 12px;
     font-weight: bold;
     font-size: 1.1em;
     text-shadow:
-        0 0 3px #000,
+        0 0 3px #000,          /* subtle black shadow */
         0 0 10px #FF6F00,
         0 0 20px #FF6F00;
     box-shadow:
@@ -79,6 +80,7 @@ h1 {
         0 0 80px #FF6F00;
 }
 
+/* Neon pulse animation for heading */
 @keyframes neonPulse {
     0%, 100% {
         text-shadow:
@@ -98,13 +100,7 @@ h1 {
     }
 }
 
-.paint-splat {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    transition: transform 0.2s;
-}
-
+/* Mobile adjustments */
 @media (max-width: 480px) {
     h1 {
         font-size: 1.8em;
@@ -126,38 +122,5 @@ h1 {
     <a class="link-button" href="https://www.etsy.com/shop/TVGcolor" target="_blank">Etsy</a>
     <a class="link-button" href="https://www.amazon.com/stores/author/B0FJM9XYGY?ccs_id=2d534d53-6a10-4c5f-ba37-ee6fc1654a11" target="_blank">Amazon Author</a>
 </div>
-
-<script>
-const body = document.body;
-const splats = [];
-for(let i = 0; i < 30; i++){
-    const splat = document.createElement('div');
-    splat.className = 'paint-splat';
-    splat.style.left = Math.random() * window.innerWidth + 'px';
-    splat.style.top = Math.random() * window.innerHeight + 'px';
-    const size = 20 + Math.random() * 60;
-    splat.style.width = size + 'px';
-    splat.style.height = size + 'px';
-    splat.style.background = `rgba(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},0.2)`;
-    body.appendChild(splat);
-    splats.push(splat);
-}
-
-let mouse = {x: 0, y: 0};
-body.addEventListener('mousemove', e => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-});
-
-function animateSplats() {
-    splats.forEach(splat => {
-        const dx = (mouse.x - splat.offsetLeft) * 0.02;
-        const dy = (mouse.y - splat.offsetTop) * 0.02;
-        splat.style.transform = `translate(${dx}px, ${dy}px)`;
-    });
-    requestAnimationFrame(animateSplats);
-}
-animateSplats();
-</script>
 </body>
 </html>
