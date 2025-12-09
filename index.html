@@ -55,13 +55,13 @@ h1 {
     text-transform: uppercase;
     -webkit-text-stroke: 1.5px #000; /* stroke for desktop */
     text-shadow:
-        0 0 5px #000,
-        0 0 10px #FF6F00,
+        0 0 10px #000,
         0 0 20px #FF6F00,
-        0 0 40px #FF6F00;
+        0 0 40px #FF6F00,
+        0 0 60px #FF6F00;
     animation: neonPulse 1.5s infinite alternate;
     margin-bottom: 20px;
-    font-size: clamp(2em, 8vw, 3em);
+    font-size: clamp(2.2em, 9vw, 3.2em);
     line-height: 1.2;
 }
 
@@ -107,17 +107,17 @@ h1 {
 @keyframes neonPulse {
     0%, 100% {
         text-shadow:
-            0 0 5px #000,
-            0 0 10px #FF6F00,
+            0 0 10px #000,
             0 0 20px #FF6F00,
-            0 0 40px #FF6F00;
+            0 0 40px #FF6F00,
+            0 0 60px #FF6F00;
     }
     50% {
         text-shadow:
-            0 0 5px #000,
-            0 0 20px #FF6F00,
+            0 0 15px #000,
             0 0 40px #FF6F00,
-            0 0 80px #FF6F00;
+            0 0 80px #FF6F00,
+            0 0 120px #FF6F00;
     }
 }
 
@@ -140,12 +140,12 @@ h1 {
     h1, .info-text {
         -webkit-text-stroke: 0; /* remove outlines on mobile */
         text-shadow:
-            0 0 10px #FF6F00,
-            0 0 20px #FF6F00; /* keep glow for readability */
+            0 0 12px #FF6F00,
+            0 0 25px #FF6F00;
     }
 
     h1 {
-        font-size: clamp(1.8em, 10vw, 2.5em);
+        font-size: clamp(1.8em, 10vw, 2.8em);
     }
     .info-text {
         font-size: clamp(0.9em, 4vw, 1em);
