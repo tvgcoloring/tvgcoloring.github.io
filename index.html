@@ -21,37 +21,33 @@ body {
     text-align: center;
 }
 
-/* Main container with subtle neon glow */
+/* Main container */
 .container {
     text-align: center;
-    padding: 50px 20px;
+    padding: 30px 20px; /* smaller padding */
     border-radius: 20px;
     max-width: 1200px;
     width: 90%;
     box-sizing: border-box;
-    background: rgba(10, 10, 10, 0.7); /* semi-transparent dark */
-    box-shadow:
-        0 0 20px #FF6F00,
-        0 0 40px #FF6F00,
-        0 0 80px #FF6F00;
+    background: none; /* remove transparent overlay */
 }
 
-/* Neon headings */
+/* Neon heading with black outline */
 h1 {
-    color: #FF6F00;
+    color: #FF6F00; /* neon orange */
     font-size: 2.5em;
     font-weight: bold;
     text-transform: uppercase;
     text-shadow:
+        0 0 3px #000,      /* black outline */
         0 0 5px #FF6F00,
         0 0 10px #FF6F00,
         0 0 20px #FF6F00,
-        0 0 40px #FF6F00,
-        0 0 80px #FF6F00;
+        0 0 40px #FF6F00;
     animation: neonPulse 1.5s infinite alternate;
 }
 
-/* Neon buttons / links */
+/* Neon buttons / boxes */
 .link-button {
     display: block;
     margin: 12px auto;
@@ -60,75 +56,47 @@ h1 {
     max-width: 300px;
     text-decoration: none;
     color: #fff;
-    background-color: #FF00FF; /* neon pink */
-    border: 3px solid #FF6F00;
+    background-color: #FF6F00; /* orange background */
+    border: 3px solid #000;     /* black trim */
     border-radius: 12px;
     font-weight: bold;
     font-size: 1.1em;
     text-shadow:
-        0 0 5px #FF00FF,
-        0 0 10px #FF00FF,
-        0 0 20px #FF00FF;
+        0 0 3px #000,          /* subtle black shadow */
+        0 0 10px #FF6F00,
+        0 0 20px #FF6F00;
     box-shadow:
-        0 0 10px #FF00FF,
-        0 0 20px #FF00FF,
-        0 0 40px #FF00FF;
+        0 0 10px #FF6F00,
+        0 0 20px #FF6F00,
+        0 0 40px #FF6F00;
     transition: transform 0.2s, box-shadow 0.3s;
 }
 
 .link-button:hover {
     transform: scale(1.05);
     box-shadow:
-        0 0 20px #FF00FF,
-        0 0 40px #FF00FF,
-        0 0 80px #FF00FF;
+        0 0 20px #FF6F00,
+        0 0 40px #FF6F00,
+        0 0 80px #FF6F00;
 }
 
-/* Neon paragraphs / smaller text */
-p, li {
-    color: #00FFFF;
-    text-shadow:
-        0 0 3px #00FFFF,
-        0 0 6px #00FFFF,
-        0 0 12px #00FFFF;
-}
-
-/* Neon links */
-a {
-    color: #39FF14;
-    text-decoration: none;
-    text-shadow:
-        0 0 5px #39FF14,
-        0 0 10px #39FF14,
-        0 0 20px #39FF14;
-    transition: all 0.3s ease;
-}
-
-a:hover {
-    text-shadow:
-        0 0 10px #39FF14,
-        0 0 20px #39FF14,
-        0 0 40px #39FF14,
-        0 0 80px #39FF14;
-}
-
-/* Neon pulse animation */
+/* Neon pulse animation for heading */
 @keyframes neonPulse {
     0%, 100% {
         text-shadow:
+            0 0 3px #000,
             0 0 5px #FF6F00,
+            0 0 10px #FF6F00,
+            0 0 20px #FF6F00,
+            0 0 40px #FF6F00;
+    }
+    50% {
+        text-shadow:
+            0 0 3px #000,
             0 0 10px #FF6F00,
             0 0 20px #FF6F00,
             0 0 40px #FF6F00,
             0 0 80px #FF6F00;
-    }
-    50% {
-        text-shadow:
-            0 0 10px #FF6F00,
-            0 0 20px #FF6F00,
-            0 0 40px #FF6F00,
-            0 0 80px #FF6F00,
-            0 0 160px #FF6F00;
     }
 }
 
