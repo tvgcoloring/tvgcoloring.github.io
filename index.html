@@ -19,27 +19,30 @@ body {
     align-items: center;
     min-height: 100vh;
     text-align: center;
+    overflow: hidden;
 }
 
 /* Main container */
 .container {
     text-align: center;
-    padding: 30px 20px; /* smaller padding */
+    padding: 30px 20px;
     border-radius: 20px;
     max-width: 1200px;
     width: 90%;
     box-sizing: border-box;
-    background: none; /* remove transparent overlay */
+    background: none;
+    position: relative;
+    z-index: 2;
 }
 
 /* Neon heading with black outline */
 h1 {
-    color: #FF6F00; /* neon orange */
+    color: #FF6F00;
     font-size: 2.5em;
     font-weight: bold;
     text-transform: uppercase;
     text-shadow:
-        0 0 3px #000,      /* black outline */
+        0 0 3px #000,
         0 0 5px #FF6F00,
         0 0 10px #FF6F00,
         0 0 20px #FF6F00,
@@ -47,7 +50,7 @@ h1 {
     animation: neonPulse 1.5s infinite alternate;
 }
 
-/* Neon buttons / boxes */
+/* Neon buttons / boxes with transparency */
 .link-button {
     display: block;
     margin: 12px auto;
@@ -56,13 +59,13 @@ h1 {
     max-width: 300px;
     text-decoration: none;
     color: #fff;
-    background-color: #FF6F00; /* orange background */
-    border: 3px solid #000;     /* black trim */
+    background-color: rgba(255, 111, 0, 0.7); /* semi-transparent orange */
+    border: 3px solid #000;
     border-radius: 12px;
     font-weight: bold;
     font-size: 1.1em;
     text-shadow:
-        0 0 3px #000,          /* subtle black shadow */
+        0 0 3px #000,
         0 0 10px #FF6F00,
         0 0 20px #FF6F00;
     box-shadow:
@@ -100,6 +103,17 @@ h1 {
     }
 }
 
+/* Interactive background elements */
+.paint-splat {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 0, 0, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.2s;
+}
+
 /* Mobile adjustments */
 @media (max-width: 480px) {
     h1 {
@@ -122,5 +136,29 @@ h1 {
     <a class="link-button" href="https://www.etsy.com/shop/TVGcolor" target="_blank">Etsy</a>
     <a class="link-button" href="https://www.amazon.com/stores/author/B0FJM9XYGY?ccs_id=2d534d53-6a10-4c5f-ba37-ee6fc1654a11" target="_blank">Amazon Author</a>
 </div>
+
+<script>
+// Add interactive paint splats following mouse
+const body = document.body;
+
+for(let i = 0; i < 30; i++){
+    const splat = document.createElement('div');
+    splat.className = 'paint-splat';
+    splat.style.left = Math.random() * window.innerWidth + 'px';
+    splat.style.top = Math.random() * window.innerHeight + 'px';
+    splat.style.width = 20 + Math.random() * 60 + 'px';
+    splat.style.height = 20 + Math.random() * 60 + 'px';
+    splat.style.background = `rgba(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},0.2)`;
+    body.appendChild(splat);
+}
+
+body.addEventListener('mousemove', (e) => {
+    document.querySelectorAll('.paint-splat').forEach(splat => {
+        const dx = (e.clientX - splat.offsetLeft) * 0.02;
+        const dy = (e.clientY - splat.offsetTop) * 0.02;
+        splat.style.transform = `translate(${dx}px, ${dy}px)`;
+    });
+});
+</script>
 </body>
 </html>
