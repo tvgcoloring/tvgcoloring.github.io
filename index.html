@@ -1,52 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TVG Coloring</title>
+<style>
 /* Global body styling */
 body {
-    background-color: #0a0a0a; /* dark background for neon contrast */
-    color: #fff; /* fallback text color */
-    font-family: 'Arial', sans-serif;
+    background-color: #0a0a0a;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     text-align: center;
 }
 
 /* Main container */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    text-align: center;
     padding: 50px 20px;
+    border-radius: 20px;
+    max-width: 1200px;
+    width: 90%;
+    box-sizing: border-box;
 }
 
 /* Neon headings */
-h1, h2, h3 {
-    color: #FF6F00; /* main neon color */
-    text-transform: uppercase;
+h1 {
+    color: #FF6F00; /* neon orange */
+    font-size: 2.5em;
     font-weight: bold;
+    text-transform: uppercase;
     text-shadow:
         0 0 5px #FF6F00,
         0 0 10px #FF6F00,
         0 0 20px #FF6F00,
         0 0 40px #FF6F00,
         0 0 80px #FF6F00;
-    animation: neon-pulse 1.5s infinite alternate;
+    animation: neonPulse 1.5s infinite alternate;
 }
 
-/* Neon paragraph or smaller text */
-p, li {
-    color: #00FFFF; /* secondary neon color */
-    text-shadow:
-        0 0 3px #00FFFF,
-        0 0 6px #00FFFF,
-        0 0 12px #00FFFF;
-}
-
-/* Buttons */
-button {
-    background-color: #FF00FF;
+/* Neon buttons / links */
+.link-button {
+    display: block;
+    margin: 12px auto;
+    padding: 14px 0;
+    width: 100%;
+    max-width: 300px;
+    text-decoration: none;
     color: #fff;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    border-radius: 8px;
-    cursor: pointer;
+    background-color: #FF00FF; /* neon pink */
+    border: 3px solid #FF6F00;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.1em;
     text-shadow:
         0 0 5px #FF00FF,
         0 0 10px #FF00FF,
@@ -55,10 +68,10 @@ button {
         0 0 10px #FF00FF,
         0 0 20px #FF00FF,
         0 0 40px #FF00FF;
-    transition: all 0.3s ease;
+    transition: transform 0.2s, box-shadow 0.3s;
 }
 
-button:hover {
+.link-button:hover {
     transform: scale(1.05);
     box-shadow:
         0 0 20px #FF00FF,
@@ -66,8 +79,36 @@ button:hover {
         0 0 80px #FF00FF;
 }
 
+/* Neon paragraphs / smaller text */
+p, li {
+    color: #00FFFF;
+    text-shadow:
+        0 0 3px #00FFFF,
+        0 0 6px #00FFFF,
+        0 0 12px #00FFFF;
+}
+
+/* Neon links */
+a {
+    color: #39FF14; /* neon green */
+    text-decoration: none;
+    text-shadow:
+        0 0 5px #39FF14,
+        0 0 10px #39FF14,
+        0 0 20px #39FF14;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    text-shadow:
+        0 0 10px #39FF14,
+        0 0 20px #39FF14,
+        0 0 40px #39FF14,
+        0 0 80px #39FF14;
+}
+
 /* Neon pulse animation */
-@keyframes neon-pulse {
+@keyframes neonPulse {
     0%, 100% {
         text-shadow:
             0 0 5px #FF6F00,
@@ -86,21 +127,24 @@ button:hover {
     }
 }
 
-/* Links with neon glow */
-a {
-    color: #39FF14;
-    text-decoration: none;
-    text-shadow:
-        0 0 5px #39FF14,
-        0 0 10px #39FF14,
-        0 0 20px #39FF14;
-    transition: all 0.3s ease;
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    .link-button {
+        padding: 12px 0;
+        font-size: 1em;
+    }
 }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>TVG Coloring</h1>
+    <a class="link-button" href="mailto:tvgcoloring@gmail.com">Email</a>
+    <a class="link-button" href="https://www.facebook.com/share/1Aswm2iKXY/" target="_blank">Facebook</a>
+    <a class="link-button" href="https://www.instagram.com/tvg.coloring?igsh=b2E3bGQ2OGc1d29q" target="_blank">Instagram</a>
+    <a class="link-button" href="https://www.tiktok.com/@tvgcolor?_r=1&_t=ZP-924QigSFdEM" target="_blank">TikTok</a>
+    <a class="link-button" href="https://www.etsy.com/shop/TVGcolor" target="_blank">Etsy_
 
-a:hover {
-    text-shadow:
-        0 0 10px #39FF14,
-        0 0 20px #39FF14,
-        0 0 40px #39FF14,
-        0 0 80px #39FF14;
-}
