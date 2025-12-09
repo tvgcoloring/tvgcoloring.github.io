@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TVG Coloring</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: url('background.png') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container {
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0); /* fully transparent */
+        padding: 30px 20px;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 350px;
+        box-sizing: border-box;
+    }
+
+    .container h1 {
+        margin-bottom: 25px;
+        font-size: 2em;
+        color: #FFFF00; /* neon yellow for title */
+        text-shadow: 0 0 10px #FFFF00; /* glowing effect for text */
+        word-wrap: break-word;
+    }
+
+    .link-button {
+        display: block;
+        margin: 12px auto;
+        padding: 14px 0;
+        width: 100%;
+        text-decoration: none;
+        color: #333;
+        background-color: white;
+        border: 3px solid #FFFF00; /* neon yellow border */
+        border-radius: 12px;
+        font-weight: bold;
+        transition: transform 0.2s, background 0.2s, box-shadow 0.3s;
+        box-shadow: 0 0 10px rgba(255,255,0,0.5);
+        animation: neonPulse 2s infinite alternate;
+        font-size: 1.1em;
+    }
+
+    .link-button:hover {
+        background-color: #FFFFE0; /* slightly lighter on hover */
+        transform: scale(1.05);
+    }
+
+    @keyframes neonPulse {
+        0% {
+            box-shadow: 0 0 5px #FFFF00, 0 0 10px #FFFF00, 0 0 20px #FFFF00;
+        }
+        50% {
+            box-shadow: 0 0 15px #FFFF00, 0 0 25px #FFFF00, 0 0 35px #FFFF00;
+        }
+        100% {
+            box-shadow: 0 0 10px #FFFF00, 0 0 20px #FFFF00, 0 0 30px #FFFF00;
+        }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+        .container h1 {
+            font-size: 1.6em;
+        }
+        .link-button {
+            padding: 12px 0;
+            font-size: 1em;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>TVG Coloring</h1>
+    <a class="link-button" href="mailto:tvgcoloring@gmail.com">Email</a>
+    <a class="link-button" href="https://www.facebook.com/share/1Aswm2iKXY/" target="_blank">Facebook</a>
+    <a class="link-button" href="https://www.instagram.com/tvg.coloring?igsh=b2E3bGQ2OGc1d29q" target="_blank">Instagram</a>
+    <a class="link-button" href="https://www.tiktok.com/@tvgcolor?_r=1&_t=ZP-924QigSFdEM" target="_blank">TikTok</a>
+    <a class="link-button" href="https://www.etsy.com/shop/TVGcolor" target="_blank">Etsy</a>
+    <a class="link-button" href="https://www.amazon.com/stores/author/B0FJM9XYGY?ccs_id=2d534d53-6a10-4c5f-ba37-ee6fc1654a11" target="_blank">Amazon Author</a>
+</div>
+</body>
+</html>
